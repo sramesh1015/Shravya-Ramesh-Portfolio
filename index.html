@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shravya Ramesh | Insights &amp; Analytics</title>
+<title>Shravya Ramesh | Consumer Insights &amp; Research</title>
+<meta name="description" content="Shravya Ramesh, consumer insights and market research professional. M.S. Marketing Research & Analytics, Michigan State University.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
@@ -13,7 +14,7 @@
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150F29;--ink:#F3EFFF;--card:#221A3F;--mute:#B2A9D1;--line:#382E5E}}
 :root[data-theme="dark"]{--bg:#150F29;--ink:#F3EFFF;--card:#221A3F;--mute:#B2A9D1;--line:#382E5E}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;margin:0}
 h1,h2,h3,.disp{font-family:'Bricolage Grotesque','DM Sans',system-ui,sans-serif}
 .hero{background:linear-gradient(120deg,var(--blue),var(--berry) 60%,var(--mango));color:#fff}
@@ -27,122 +28,206 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--mango);outline-offs
 (function(){
 var h=React.createElement,useState=React.useState;
 
-/* ===== CLIENT NAMES: set to true only after confirming you may name them publicly ===== */
+/* ===== CLIENT NAMES: set to false to swap every client name for a generic descriptor ===== */
 var SHOW_CLIENTS=true;
 function C(real,alias){return SHOW_CLIENTS?real:alias}
 
+var ICONS={
+ tech:[["rect",{x:2,y:3,width:20,height:14,rx:2}],["path",{d:"M8 21h8M12 17v4"}]],
+ food:[["path",{d:"M17 8h1a4 4 0 1 1 0 8h-1"}],["path",{d:"M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"}],["path",{d:"M6 2v2M10 2v2M14 2v2"}]],
+ retail:[["path",{d:"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"}],["path",{d:"M3 6h18"}],["path",{d:"M16 10a4 4 0 0 1-8 0"}]],
+ qsr:[["path",{d:"M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"}],["path",{d:"M7 2v20"}],["path",{d:"M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"}]],
+ ai:[["path",{d:"M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2Z"}]],
+ trend:[["path",{d:"M22 7 13.5 15.5 8.5 10.5 2 17"}],["path",{d:"M16 7h6v6"}]],
+ film:[["rect",{x:2,y:2,width:20,height:20,rx:2}],["path",{d:"M7 2v20M17 2v20M2 12h20"}]],
+ home:[["path",{d:"M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"}],["path",{d:"M9 21v-6h6v6"}]],
+ cpg:[["path",{d:"M21 8 12 3 3 8v8l9 5 9-5Z"}],["path",{d:"M3 8l9 5 9-5M12 13v8"}]],
+ users:[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"}],["circle",{cx:9,cy:7,r:4}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"}]],
+ link:[["path",{d:"M15 3h6v6"}],["path",{d:"M10 14 21 3"}],["path",{d:"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"}]],
+ mail:[["rect",{x:2,y:4,width:20,height:16,rx:2}],["path",{d:"m22 7-10 5L2 7"}]],
+ linkedin:[["path",{d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"}],["rect",{x:2,y:9,width:4,height:12}],["circle",{cx:4,cy:4,r:2}]]
+};
+function Icon(p){var d=ICONS[p.n]||[];return h("svg",{width:p.s||20,height:p.s||20,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":true,style:{flexShrink:0}},d.map(function(e,i){return h(e[0],Object.assign({key:i},e[1]))}))}
+
 var P={name:"Shravya Ramesh",email:"s.ramesh1015@gmail.com",linkedin:"https://linkedin.com/in/shravyaramesh"};
+
 var STATS=[
- {v:"30+",l:"studies run across 5 online insight communities",c:"var(--mango)"},
+ {v:"30+",l:"qualitative and quantitative studies for national and Fortune 500 brands",c:"var(--mango)"},
  {v:"100+",l:"surveys designed, programmed and QA-tested",c:"var(--mint)"},
- {v:"10k+",l:"panelists recruited, engaged and incentivized",c:"var(--berry)"},
- {v:"35% to 80%",l:"Gen Z survey participation after my outreach rewrite",c:"var(--blue)"}
+ {v:"5",l:"online insight communities, from 50 to 10,000 members",c:"var(--berry)"},
+ {v:"35% to 80%",l:"Gen Z survey participation after I rewrote our outreach",c:"var(--blue)"}
 ];
-var TAGS=["All","Food & Bev","Retail & QSR","Tech","AI & automation"];
-var TC={"Food & Bev":"var(--berry)","Retail & QSR":"var(--mint)",Tech:"var(--blue)","AI & automation":"var(--mango)"};
+
+var INDUSTRIES=[
+ {n:"tech",t:"Tech",e:C("Google","A global tech company")},
+ {n:"food",t:"Food & beverage",e:C("Winland Foods, Ferrero, McCormick","Food, confection and spice brands")},
+ {n:"cpg",t:"CPG trends",e:"Trend forecasting for a CPG client"},
+ {n:"retail",t:"Retail",e:C("DSW, Tractor Supply Co.","Footwear and farm retailers")},
+ {n:"qsr",t:"Restaurants",e:C("Zaxby's, Subway","National restaurant chains")},
+ {n:"film",t:"Entertainment",e:C("Disney","A global entertainment brand")},
+ {n:"home",t:"Home & paint",e:C("PPG Paints","A national paint brand")},
+ {n:"users",t:"Culture & community",e:"Multicultural and Gen Z research"}
+];
+
+var OPEN=["Consumer & Customer Insights","Market Research","CX & Voice of Customer","Brand & Consumer Strategy","Research & Analytics"];
+
+var FIT=[
+ {t:"Consumer insights and market research",c:"var(--berry)",p:"Pin down what the team needs to decide, pick the method that answers it, program and QA the survey, analyze the data and present a recommendation.",pr:"30+ studies and 100+ surveys across food, retail, restaurants and tech"},
+ {t:"Pricing, loyalty and product decisions",c:"var(--mint)",p:"Van Westendorp, MaxDiff, TURF and concept tests that help teams decide what to charge, what to offer and what to launch.",pr:"Pricing, loyalty and flavor studies for "+C("DSW, Zaxby's and Winland Foods","a retailer, a QSR chain and a food manufacturer")},
+ {t:"Customer, UX and community research",c:"var(--blue)",p:"IDIs, focus groups, mobile missions, video analysis and community management that bring real customer behavior to product and marketing teams.",pr:"Communities of 50 to 10,000 members, Gen Z participation from 35% to 80%"},
+ {t:"Research ops and AI-enabled workflows",c:"var(--mango)",p:"Excel macros, trackers and AI tools that automate photo downloads and incentive tracking and speed up open-end synthesis, so more time goes to analysis.",pr:"Hundreds of participant photos downloaded and labeled in about 30 seconds"}
+];
+
+var THINK=[
+ {t:"I learn the brand before I write the survey",d:"I dig into the product, the customer and the business goal first, because that is what makes the questions sharp.",pr:C("Tractor Supply","A farm retailer")+": learned how goat owners actually feed and shop before recommending an aisle layout.",c:"var(--berry)"},
+ {t:"I look for the reason behind the answer",d:"What people say they do and why they do it are often different. I design studies to get at the why.",pr:C("DSW","A footwear retailer")+": 'clearance' means something different on a $40 shoe than a $150 one, so I built price tiers into the survey.",c:"var(--mint)"},
+ {t:"I write for the person making the decision",d:"Every readout answers three things: what we found, why it matters and what I recommend doing about it.",pr:C("Winland Foods","A food manufacturer")+": presented the TURF results as a love-letter style visual of the top 3 flavors instead of a table of reach scores.",c:"var(--blue)"},
+ {t:"I handle the detail and the big picture",d:"I can code video to the millisecond or debug survey logic, and still step back to check we are answering the right question.",pr:C("Google","A global tech company")+": coded hundreds of scroll videos to the millisecond, then rewrote Gen Z outreach and took participation from 35% to 80%.",c:"var(--mango)"},
+ {t:"I automate repetitive work",d:"If a task is slow and manual, I learn the tool and build the fix.",pr:"Built an Excel macro with Copilot that turned hours of photo downloading into seconds.",c:"var(--berry)"}
+];
+
+var TAGS=["All","Food & Bev","Retail & QSR","Tech","Trends & AI","AI & automation"];
+var TC={"Food & Bev":"var(--berry)","Retail & QSR":"var(--mint)",Tech:"var(--blue)","Trends & AI":"var(--blue)","AI & automation":"var(--mango)"};
+var TI={"Food & Bev":"food","Retail & QSR":"retail",Tech:"tech","Trends & AI":"trend","AI & automation":"ai"};
+
 var WORK=[
- {t:"Food & Bev",client:C("PepsiCo Gatorade","A leading sports drink brand"),title:"Drivers and barriers to purchase",
+ {t:"Trends & AI",client:"Finch Brands | CPG client",title:"Spotting the next trend for a CPG client",
+  result:"Proactive trend calls to steer new offerings",
+  ask:"A CPG client needed to stay ahead of where consumer demand was heading, not just react to it.",
+  did:"Used Charlie, Finch Brands' in-house AI, to scan for big-picture emerging trends. Took the initiative to pick the one most worth watching and wrote it up for the client: what the trend is and why it matters for their category.",
+  out:"Gave the client an early read on where to point potential new products and offerings.",
+  m:["Trend forecasting","AI tools"],links:[]},
+ {t:"Retail & QSR",client:C("DSW","A national footwear retailer"),title:"What shoppers think 'sale' and 'clearance' mean",
+  result:"A flat 30% off did not feel like clearance",
+  ask:"The retailer had just moved clearance to a flat 30% off and needed to know how shoppers read 'sale' versus 'clearance'.",
+  did:"Recognized that the meaning depends on what the shoe costs, so I built price tiers into the survey and added a Van Westendorp on discount depth to find the percentage that feels worth it.",
+  out:"Showed that 30% fell short of what shoppers expect from clearance, and that price range changed those expectations.",
+  m:["Van Westendorp","Pricing"],links:[]},
+ {t:"Tech",client:C("Google","A global tech company"),title:"Scroll speed by generation and Gen Z engagement",
+  result:"Participation up from 35% to 80%",
+  ask:"The team needed to know how long different generations take to scroll past an ad, and needed Gen Z to actually respond to surveys.",
+  did:"Timestamped hundreds of scrolling videos to the millisecond. As the team's Gen Z language expert, rewrote community communications for that audience. Organized recurring IDIs and focus groups for each wave of the experiment.",
+  out:"Gave the team generational timing data to inform ad length and repetition, and lifted Gen Z survey participation by 45 points.",
+  m:["UX research","Video analysis","IDIs","Focus groups","Community management"],links:[]},
+ {t:"Retail & QSR",client:C("Zaxby's","A national QSR chain"),title:"Which loyalty perks are worth it",
+  result:"Loyalty benefits ranked by perceived value",
+  ask:"The brand needed to choose loyalty program benefits that guests truly value.",
+  did:"Designed MaxDiff best-worst exercises with benefit subsets so guests had to trade perks off against each other instead of saying yes to everything.",
+  out:"Ranked every benefit by how much guests valued it relative to the others, so the team knew which perks to lead with and which mattered least.",
+  m:["MaxDiff","Loyalty"],links:[]},
+ {t:"Food & Bev",client:C("Winland Foods","A national food manufacturer"),title:"Flavor line-up for beverage and dessert syrups",
+  result:"Flavor sets ranked by unduplicated reach",
+  ask:"The client needed to know which few flavors would appeal to the widest range of consumers.",
+  did:"Ran TURF analysis for both the beverage and dessert syrups, then turned the top 3 flavors into a love-letter style visual.",
+  out:"Gave the team the flavor combination for each syrup line that appealed to the largest number of different consumers, with the top 3 shown as a love-letter style visual.",
+  m:["TURF","Data storytelling"],links:[]},
+ {t:"Retail & QSR",client:C("Tractor Supply Co.","A national farm and rural lifestyle retailer"),title:"Goat owners and how to set up the aisle",
+  result:"All 30 eligible participants finished every activity",
+  ask:"The retailer wanted to lay out its goat aisle around how owners actually feed, shop and think about their animals.",
+  did:"Ran mobile missions, shop-alongs and IDIs, then personally followed up with and rewarded each of the 30 eligible participants so the full sample finished.",
+  out:"Delivered a complete goat-owner analysis with aisle recommendations built around feeding routines and ownership stage.",
+  m:["Mobile missions","IDIs","Shop-alongs"],links:[]},
+ {t:"AI & automation",client:"Finch Brands",title:"Excel macros and AI-assisted workflows",
+  result:"Hundreds of images in about 30 seconds",
+  ask:"Building a client lookbook meant downloading hundreds of participant photos by hand.",
+  did:"With Copilot, built a macro that reads every image link in a survey export, downloads each one and names it by participant ID and question. Also built trackers for incentives, participants and qualitative synthesis.",
+  out:"Turned a manual, error-prone task into seconds and freed up 10+ hours a week for analysis.",
+  m:["AI workflows","Automation"],links:[]},
+ {t:"Food & Bev",acad:true,client:C("PepsiCo Gatorade","A leading sports drink brand"),title:"Drivers and barriers to purchase",
   result:"5 drivers and 4 barriers turned into 3 recommendations",
-  ask:"The client's insights team needed to know what pushes shoppers to buy and what holds them back.",
+  ask:"The brand's insights team wanted to know what pushes shoppers to buy and what holds them back.",
   did:"Led a team of 6 end to end. Moderated 3 focus groups, fielded a quantitative survey and ran factor, cluster, regression and multidimensional scaling in SPSS.",
-  out:"Recommended family-focused advertising, bright fruity branding and resealable packaging. The presentation backed up the team's own thinking for a product still to launch.",
-  m:["Focus groups","Regression","Cluster analysis"]},
- {t:"Food & Bev",client:C("The OnlyBean","A healthy snack startup"),title:"Snack launch plan, solo from proposal to report",
+  out:"Recommended family-focused advertising, bright fruity branding and resealable packaging. The brand team said the findings supported the direction they were already exploring for an upcoming product.",
+  m:["Focus groups","Regression","Cluster analysis"],links:[]},
+ {t:"Food & Bev",acad:true,client:C("The OnlyBean","A healthy snack startup"),title:"Snack launch plan, solo from proposal to report",
   result:"$4.72 to $5.81 price band from 400 respondents",
   ask:"A snack startup needed to know how to win shoppers who want healthy, crunchy snacks.",
   did:"Found the client myself, moderated 10 in-depth interviews, programmed and fielded the survey, and analyzed it with factor, cluster, regression and Van Westendorp.",
-  out:"Delivered a three-part plan: build awareness with creator partnerships and in-store sampling, price larger packs in the optimal band with minimal ingredients up front, and expand into convenience stores.",
-  m:["Van Westendorp","IDIs","Regression","Cluster analysis"]},
- {t:"Food & Bev",client:C("Winland Foods","A national food manufacturer"),title:"Flavor line-up for beverage and dessert syrups",
-  result:"Flavor sets ranked by unduplicated reach",
-  ask:"The client needed to know which few flavors would appeal to the most different consumers.",
-  did:"Ran TURF analysis for both the beverage and dessert syrups, then turned the top 3 flavors into a love-letter style visual.",
-  out:"Gave the team the flavor combinations that reach the most distinct shoppers, in a readout people enjoyed reading.",
-  m:["TURF","Data storytelling"]},
- {t:"Retail & QSR",client:C("Zaxby's","A national QSR chain"),title:"Which loyalty perks are worth it",
-  result:"Loyalty benefits ranked by perceived value",
-  ask:"The brand needed to choose benefits for its loyalty program that guests truly value.",
-  did:"Designed MaxDiff best-worst surveys with benefit subsets so guests had to trade perks off against each other.",
-  out:"Separated the 'worth it' benefits from the nice-to-haves so the program could prioritize what drives value.",
-  m:["MaxDiff","Loyalty"]},
- {t:"Retail & QSR",client:C("DSW","A national footwear retailer"),title:"What shoppers think 'sale' and 'clearance' mean",
-  result:"A flat 30% off did not feel like clearance",
-  ask:"The retailer had just moved clearance to a flat 30% off and needed to know how shoppers read 'sale' and 'clearance'.",
-  did:"Recognized the meaning depends on shoe price, so I built price tiers into the survey and added a Van Westendorp on discount depth to find the percentage that feels worth it.",
-  out:"Showed that 30% fell short of clearance and that price range changed shopper expectations.",
-  m:["Van Westendorp","Pricing"]},
- {t:"Retail & QSR",client:C("Tractor Supply Co.","A national farm and rural lifestyle retailer"),title:"Goat owners and how to set up the aisle",
-  result:"30 participants kept engaged through every activity",
-  ask:"The retailer wanted to lay out its goat aisle around how owners actually feed, shop and think about their animals.",
-  did:"Ran mobile missions, shop-alongs and IDIs, then followed up with and rewarded each of the 30 eligible participants so the full sample finished.",
-  out:"Delivered a complete goat-owner analysis with aisle layout recommendations built around feeding routines and ownership stage.",
-  m:["Mobile missions","IDIs","Shop-alongs"]},
- {t:"Tech",client:C("Google","A global tech company"),title:"Scroll speed by generation and Gen Z engagement",
-  result:"Participation up from 35% to 80%",
-  ask:"The team needed to know how long different generations take to scroll past an ad, and needed Gen Z to respond to surveys.",
-  did:"Timestamped hundreds of scrolling videos to the millisecond, and as the Gen Z language expert rewrote community communications. Also organized recurring IDIs and focus groups for each wave of an experiment.",
-  out:"Gave the team timing data by generation to set how long ads show and whether they repeat, and lifted survey participation by 45 points.",
-  m:["UX research","Video analysis","Community management"]},
- {t:"AI & automation",client:"Finch Brands",title:"Excel macros and AI workflows",
-  result:"100s of images in about 30 seconds, 10+ hours saved weekly",
-  ask:"Building a client lookbook meant downloading hundreds of participant photos by hand.",
-  did:"With Copilot, built a macro that reads every image link in a survey export, downloads each one and names it by participant ID and question. Added trackers for incentives, recruits and synthesis.",
-  out:"Turned a manual task into seconds and cut manual effort by 10+ hours a week.",
-  m:["AI workflows","Automation"]}
+  out:"Delivered a three-part plan: build awareness with creator partnerships and in-store sampling, price larger packs within the $4.72 to $5.81 band with a short ingredient list called out on the front of the pack, and expand into convenience stores.",
+  m:["Van Westendorp","IDIs","Regression","Cluster analysis"],links:[]}
 ];
-var OPEN=["Insights Analyst","Research Analyst","Marketing Analytics","Customer & UX Insights","Community & Panel Research"];
-var FIT=[
- {t:"Insights and research analyst",c:"var(--berry)",p:"Design, program and QA-test surveys, choose the right method, analyze the data and present clear recommendations.",pr:"100+ surveys and 30+ studies for national brands"},
- {t:"Marketing and pricing analytics",c:"var(--mint)",p:"Concept, claims and pricing studies that guide launches, promotions and loyalty programs.",pr:"Insights that shaped 100+ launches, pricing changes and loyalty updates"},
- {t:"Customer, UX and community research",c:"var(--blue)",p:"Interviews, mobile missions, video analysis and panel management that bring real customer behavior to product and marketing teams.",pr:"10k+ participants managed, participation from 35% to 80%"},
- {t:"Research ops and AI-enabled workflows",c:"var(--mango)",p:"Automations, trackers and AI-assisted analysis that give teams hours back.",pr:"10+ hours saved weekly with macros and tools I built"}
+
+var METHODS=["Trend forecasting","MaxDiff","TURF","Van Westendorp","Concept & claims tests","IHUTs","Mobile missions","IDIs","Focus groups","Regression","Cluster analysis","Semantic differential","Dial tests","Social media simulations"];
+var TOOLS=[
+ ["Analytics",["SPSS","Q Research","Excel","Tableau","Google Analytics","SQL and R (coursework)"]],
+ ["Survey & community platforms",["MyTake","AYTM","Online insight communities","Survey logic, quotas and custom HTML"]],
+ ["Storytelling & AI",["Client decks and media plans","Persona writing","Prompt engineering","Charlie (Finch Brands' in-house AI)","Claude, ChatGPT, Gemini, Copilot","Video highlight reels"]]
 ];
+
 var HOW=[
- {t:"Client thought partner",d:"Probe ideas before a survey is written so every perspective is covered, and respond fast so clients stay confident.",c:"var(--berry)"},
- {t:"Persona and survey storytelling",d:"Wrote personas with real color for "+C("McCormick","a national spice and condiment brand")+" shoppers and Gen Z outreach that people actually open.",c:"var(--mint)"},
- {t:"Timeline and community juggling",d:"Paced multiple studies across multiple communities, planned coverage ahead of outages and pushed or pulled timelines to hit deadlines.",c:"var(--blue)"},
- {t:"AI-assisted analysis",d:"Use Claude, ChatGPT, Gemini and Copilot to speed open-end analysis and synthesis, while I make the final calls and spot the trends.",c:"var(--mango)"}
+ {t:"Client thought partner",d:"I question the brief before the survey gets written so we do not miss a consumer group or angle, and I reply quickly so clients always know where their study stands.",c:"var(--berry)"},
+ {t:"Persona and survey storytelling",d:"Wrote personas with real color for "+C("McCormick","a national spice and condiment brand")+" shoppers, and Gen Z outreach that people actually opened.",c:"var(--mint)"},
+ {t:"Timeline and community juggling",d:"Ran several studies across several communities at once, planned coverage ahead of team time off and moved timelines up or back to hit client deadlines.",c:"var(--blue)"},
+ {t:"AI-assisted, human-judged",d:"I use Claude, ChatGPT, Gemini and Copilot to speed up open-end coding and synthesis. I still make the calls on what the patterns mean.",c:"var(--mango)"}
 ];
+
+var JOBS=[
+ {when:"01/2025 to 06/2026",role:"Insights Coordinator",org:"Finch Brands (remote)",pts:[
+  "Managed and executed 30+ qualitative and quantitative studies across 5 online insight communities (50 to 10,000 members) for "+C("Google, DSW, Tractor Supply Co., Winland Foods and Zaxby's","national and Fortune 500 brands in tech, retail, QSR and food")+".",
+  "Designed, programmed and QA-tested 100+ surveys with complex display logic, embedded data, quotas and custom HTML.",
+  "Turned findings into 50+ client-ready decks, media plans and recommendations on pricing, loyalty, product and customer experience.",
+  "Ran participant recruitment, incentives and engagement across communities, and built AI-assisted Excel macros and trackers for incentives, participants and qualitative synthesis."]},
+ {when:"05/2024 to 08/2024",role:"Quantitative Research Analyst Intern",org:"C+R Research, Chicago",pts:[
+  "Ran survey QA and data validation on studies for "+C("Disney, Ferrero, Subway and PPG Paints","national entertainment, food, restaurant and paint brands")+" and caught 20+ data issues.",
+  "Synthesized CultureBeat video research across Hispanic, Black, Asian, Gen Z and LGBTQ+ segments into a client strategy deck.",
+  "Organized a 4,500+ line Excel index of survey questions and tables built up over 2 years, so the team could find any table and clear out ones no longer needed.",
+  "Kept prerecruited community panels engaged between studies.",
+  "Helped build 10+ client presentations and deliverables that combined survey data with qualitative findings."]},
+ {when:"2019 to 2022",role:"Before research",org:"restaurant front of house",pts:[
+  "Rochester Chop House: pitched management on moving reservations from paper to an electronic system, trained new staff on it and ran the host stand for 300+ guests in 5-hour shifts.",
+  "Chili's: recognized as the top promoter of the restaurant rewards program with 100+ guest sign-ups."]}
+];
+
 var EDU=[
- {d:"M.S. Marketing Research & Analytics",s:"Michigan State University, Broad College of Business",y:"2023 to 2024",g:"GPA 3.95"},
- {d:"B.A. Marketing",s:"Michigan State University, Broad College and Honors College",y:"2020 to 2023",g:"GPA 3.63"}
+ {d:"M.S. Marketing Research & Analytics",s:"Michigan State University, Broad College of Business",y:"Graduated Dec 2024",g:"GPA 3.95",n:"Applied research with real clients, including the Gatorade and OnlyBean projects above."},
+ {d:"B.A. Marketing",s:"Michigan State University, Broad College and Honors College",y:"Graduated Dec 2023",g:"GPA 3.63"}
 ];
-var METHODS=["MaxDiff","TURF","Van Westendorp","Concept & claims tests","IHUTs","Mobile missions","IDIs","Focus groups","Semantic differential","Dial tests","Social media simulations"];
-var TOOLS=[["Analytics",["SPSS","Q Research","Excel","Tableau","Google Analytics","SQL and R (coursework)"]],["Survey & community platforms",["MyTake","AYTM","Online insight communities","Custom HTML in surveys"]],["Storytelling & AI",["Client decks and media plans","Persona writing","Prompt engineering","Claude, ChatGPT, Gemini, Copilot","Video reels"]]];
+
 var WINS=[
  {w:"1st place",e:"MSU International Business Case Competition",d:"Team of 4 built a go-to-market and analytics plan to grow Dropbox's market share and ROI, presented to a judging panel. Nov 2022"},
- {w:"2nd place",e:"NASBITE International Case Competition",d:"Recommended a market and a GDP-based pricing scheme that the sponsor said it would use to shape its regional pricing. March 2023"},
- {w:"+54.4% engagement",e:"Phi Gamma Nu marketing chair",d:"Reached 200+ recruits and grew Instagram by 10% with 54.4% higher engagement. Mentored 27+ new members, all admitted to Broad College."}
+ {w:"2nd place",e:"NASBITE International Case Competition",d:"Team of 4 picked Nigeria as the best African market for a cloud-based healthcare company and built a GDP-based pricing scheme the CEO said would help shape its regional pricing. March 2023"},
+ {w:"27+ mentored",e:"Phi Gamma Nu",d:"Led new-member education, marketing, merchandise and philanthropy. As marketing chair, reached 200+ recruits with 54.4% higher Instagram engagement."},
+ {w:"20+ students",e:"MSU Multicultural Business Programs",d:"Tutored 20+ business students one on one through MSU's Multicultural Business Programs."}
 ];
-var JOBS=[
- {when:"01/2025 to 06/2026",role:"Insights Coordinator",org:"Finch Brands (remote)",pts:["Ran 30+ studies for Google, DSW, Tractor Supply, Winland Foods and Zaxby's that shaped 100+ product launches, pricing changes and loyalty updates.","Built 50+ client-ready decks, media plans and recommendations across tech, CPG, retail, QSR and manufacturing.","Managed recruitment and incentives for 10k+ participants across 5 communities."]},
- {when:"05/2024 to 08/2024",role:"Quantitative Research Analyst Intern",org:"C+R Research, Chicago",pts:["Ran survey QA for Disney, Ferrero, Subway and PPG Paints studies and caught 20+ data issues.","Synthesized CultureBeat video research across Hispanic, Black, Asian, Gen Z and LGBTQ+ segments into a client strategy deck."]}
-];
+
 function S(p){return h("section",{id:p.id,className:"max-w-6xl mx-auto px-5 py-14"},h("h2",{className:"text-3xl sm:text-4xl font-extrabold mb-2"},p.title),p.sub&&h("p",{className:"mb-8 max-w-2xl",style:{color:"var(--mute)"}},p.sub),p.children)}
-function btn(href,txt,solid){return h("a",{href:href,className:"px-5 py-3 rounded-full font-bold "+(solid?"":"border-2 border-white"),style:solid?{background:"#fff",color:"#1E1537"}:null},txt)}
+function btn(href,txt,solid,ic){return h("a",{href:href,className:"inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold "+(solid?"":"border-2 border-white"),style:solid?{background:"#fff",color:"#1E1537"}:null},ic?h(Icon,{n:ic,s:18}):null,txt)}
+function pill(txt,bg,fg){return h("span",{className:"text-xs font-bold px-3 py-1 rounded-full",style:{background:bg,color:fg,border:"1px solid var(--line)"}},txt)}
 
 function App(){
  var a=useState("All"),tag=a[0],setTag=a[1],b=useState(null),meth=b[0],setMeth=b[1],c=useState(null),open=c[0],setOpen=c[1];
  var list=WORK.filter(function(w){return (tag==="All"||w.t===tag)&&(!meth||w.m.indexOf(meth)>-1)});
  function pickMethod(m){setMeth(meth===m?null:m);setTag("All");var el=document.getElementById("results");if(el)el.scrollIntoView()}
- var nav=[["Where I fit","#fit"],["Case studies","#results"],["Toolkit","#toolkit"],["Wins","#wins"],["How I work","#how"],["Experience","#experience"],["Contact","#contact"]];
+ var nav=[["How I think","#think"],["Industries","#industries"],["Where I fit","#fit"],["Case studies","#results"],["Toolkit","#toolkit"],["Experience","#experience"],["Wins","#wins"],["Contact","#contact"]];
  return h("div",null,
   h("header",{className:"sticky z-20 backdrop-blur",style:{top:"env(safe-area-inset-top,0px)",background:"color-mix(in srgb,var(--bg) 85%,transparent)",borderBottom:"1px solid var(--line)"}},
    h("nav",{className:"max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-4"},
     h("a",{href:"#top",className:"disp font-extrabold text-lg whitespace-nowrap"},P.name),
     h("div",{className:"flex gap-4 text-sm font-medium overflow-x-auto"},nav.map(function(l){return h("a",{key:l[0],href:l[1],className:"hover:underline whitespace-nowrap"},l[0])})))),
+
   h("div",{id:"top",className:"hero"},
    h("div",{className:"max-w-6xl mx-auto px-5 pt-16 pb-12"},
-    h("h1",{className:"text-4xl sm:text-6xl font-extrabold leading-[1.05] max-w-3xl"},"I turn research and data into decisions that grow brands."),
-    h("p",{className:"mt-5 text-lg max-w-2xl"},"Insights and analytics professional with experience across food, beverage, retail, restaurants and tech. M.S. Marketing Research & Analytics, Michigan State (3.95 GPA). I design the study, run the analysis and present recommendations clients act on."),
-    h("div",{className:"mt-6 flex flex-wrap gap-2","aria-label":"Open to roles"},OPEN.map(function(o){return h("span",{key:o,className:"px-3 py-1 rounded-full text-sm font-bold",style:{background:"rgba(255,255,255,.22)"}},o)})),h("div",{className:"mt-6 flex flex-wrap gap-3"},btn("#results","See my case studies",true),btn("mailto:"+P.email,"Hire me",false))),
+    h("h1",{className:"text-4xl sm:text-6xl font-extrabold leading-[1.05] max-w-3xl"},"I want to know why people choose what they choose."),
+    h("p",{className:"mt-5 text-lg max-w-2xl"},"I'm a consumer insights researcher with an M.S. in Marketing Research & Analytics from Michigan State. I design and run qualitative and quantitative studies, analyze the results and turn them into clear recommendations on pricing, loyalty, product and marketing for brands in tech, food and beverage, CPG, retail, restaurants, entertainment and home goods."),
+    h("div",{className:"mt-6 flex flex-wrap gap-2","aria-label":"Open to roles"},OPEN.map(function(o){return h("span",{key:o,className:"px-3 py-1 rounded-full text-sm font-bold",style:{background:"rgba(255,255,255,.22)"}},o)})),
+    h("div",{className:"mt-6 flex flex-wrap gap-3"},btn("#results","See my work",true),btn("mailto:"+P.email,"Get in touch",false))),
    h("div",{className:"max-w-6xl mx-auto px-5 pb-12 grid grid-cols-2 lg:grid-cols-4 gap-4"},STATS.map(function(s){
     return h("div",{key:s.l,className:"rounded-2xl p-5",style:{background:"var(--card)",color:"var(--ink)",borderTop:"6px solid "+s.c}},
      h("div",{className:"disp text-3xl font-extrabold"},s.v),h("div",{className:"text-sm mt-1",style:{color:"var(--mute)"}},s.l))}))),
 
-  h(S,{id:"fit",title:"Where I fit",sub:"The kinds of work I can step into on day one, with proof."},h("div",{className:"grid md:grid-cols-2 gap-5"},FIT.map(function(f){return h("div",{key:f.t,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderTop:"6px solid "+f.c}},h("h3",{className:"font-bold text-lg"},f.t),h("p",{className:"mt-2"},f.p),h("p",{className:"mt-3 font-bold"},f.pr))}))),
+  h(S,{id:"think",title:"How I think",sub:"I can't enjoy a product without wondering why it works, who it's really for and what would make it better. Here's how that shows up in the work."},
+   h("div",{className:"grid md:grid-cols-2 lg:grid-cols-3 gap-5"},THINK.map(function(x){return h("div",{key:x.t,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderTop:"6px solid "+x.c}},
+    h("h3",{className:"font-bold text-lg"},x.t),h("p",{className:"mt-2"},x.d),h("p",{className:"mt-3 text-sm",style:{color:"var(--mute)"}},x.pr))}))),
 
-  h(S,{id:"results",title:"Case studies",sub:"Filter by industry, or tap a method in the toolkit below. Open a card for the challenge, my actions and the result."},
+  h(S,{id:"industries",title:"Industries I've worked in",sub:"Client and project work across categories, so I can get up to speed on a new one quickly."},
+   h("div",{className:"grid grid-cols-2 lg:grid-cols-4 gap-4"},INDUSTRIES.map(function(x,i){var col=["var(--blue)","var(--berry)","var(--mango)","var(--mint)"][i%4];
+    return h("div",{key:x.t,className:"rounded-2xl p-5",style:{background:"var(--card)",border:"1px solid var(--line)"}},
+     h("div",{className:"w-10 h-10 rounded-xl flex items-center justify-center",style:{background:col,color:i%4===2?"#1E1537":"#fff"}},h(Icon,{n:x.n,s:22})),
+     h("div",{className:"font-bold mt-3"},x.t),h("div",{className:"text-sm mt-1",style:{color:"var(--mute)"}},x.e))}))),
+
+  h(S,{id:"fit",title:"Where I fit",sub:"The work I can step into on day one, with proof."},h("div",{className:"grid md:grid-cols-2 gap-5"},FIT.map(function(f){return h("div",{key:f.t,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderTop:"6px solid "+f.c}},h("h3",{className:"font-bold text-lg"},f.t),h("p",{className:"mt-2"},f.p),h("p",{className:"mt-3 font-bold"},f.pr))}))),
+
+  h(S,{id:"results",title:"Case studies",sub:"Client work from Finch Brands first, then grad school projects. Filter by industry or tap a method in the toolkit. Open a card for the challenge, what I did and the result."},
    h("div",{className:"flex flex-wrap gap-2 mb-4",role:"tablist"},TAGS.map(function(t){var on=t===tag;
     return h("button",{key:t,role:"tab","aria-selected":on,onClick:function(){setTag(t);setOpen(null)},className:"px-4 py-2 rounded-full text-sm font-bold border-2",
      style:{background:on?(TC[t]||"var(--ink)"):"transparent",color:on?(t==="AI & automation"?"#1E1537":(TC[t]?"#fff":"var(--bg)")):"var(--ink)",borderColor:TC[t]||"var(--ink)"}},t)})),
@@ -150,10 +235,12 @@ function App(){
    list.length===0&&h("p",{style:{color:"var(--mute)"}},"No case studies match yet. Clear a filter to see them all."),
    h("div",{className:"grid md:grid-cols-2 gap-5"},list.map(function(w){var o=open===w.title;
     return h("button",{key:w.title,onClick:function(){setOpen(o?null:w.title)},"aria-expanded":o,className:"text-left rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderLeft:"8px solid "+TC[w.t]}},
-     h("div",{className:"text-sm font-bold",style:{color:"var(--mute)"}},w.client+" | "+w.t),
+     h("div",{className:"flex flex-wrap items-center gap-2"},
+      h("span",{className:"flex items-center gap-1 text-sm font-bold",style:{color:TC[w.t]}},h(Icon,{n:TI[w.t],s:16})),h("span",{className:"text-sm font-bold",style:{color:"var(--mute)"}},w.client+" | "+w.t),
+      w.acad?pill("Grad school project","var(--bg)","var(--ink)"):pill("Client work","var(--bg)","var(--ink)")),
      h("h3",{className:"text-xl font-bold mt-1"},w.title),
      h("div",{className:"disp text-2xl font-extrabold mt-3"},w.result),
-     o?h("div",{className:"mt-4 space-y-2"},h("p",null,h("b",null,"Challenge: "),w.ask),h("p",null,h("b",null,"What I did: "),w.did),h("p",null,h("b",null,"Result: "),w.out),h("div",{className:"flex flex-wrap gap-2 mt-3"},w.m.map(function(x){return h("span",{key:x,className:"text-xs font-bold px-3 py-1 rounded-full",style:{background:"var(--bg)",border:"1px solid var(--line)"}},x)}))):
+     o?h("div",{className:"mt-4 space-y-2"},h("p",null,h("b",null,"Challenge: "),w.ask),h("p",null,h("b",null,"What I did: "),w.did),h("p",null,h("b",null,"Result: "),w.out),(w.links&&w.links.length)?h("div",{className:"flex flex-wrap gap-2 mt-3"},w.links.map(function(L){return h("a",{key:L.u,href:L.u,target:"_blank",rel:"noopener",onClick:function(e){e.stopPropagation()},className:"inline-flex items-center gap-1 text-sm font-bold px-3 py-1 rounded-full",style:{background:TC[w.t],color:"#fff"}},h(Icon,{n:"link",s:14}),L.l)})):null,h("div",{className:"flex flex-wrap gap-2 mt-3"},w.m.map(function(x){return h("span",{key:x,className:"text-xs font-bold px-3 py-1 rounded-full",style:{background:"var(--bg)",border:"1px solid var(--line)"}},x)}))):
       h("div",{className:"text-sm mt-3 font-medium",style:{color:"var(--mute)"}},"Show how I did it"))}))),
 
   h(S,{id:"toolkit",title:"Toolkit",sub:"Tap a research method to filter the case studies where I used it."},
@@ -162,10 +249,6 @@ function App(){
    h("div",{className:"grid md:grid-cols-3 gap-5"},TOOLS.map(function(g,i){var col=["var(--mint)","var(--mango)","var(--blue)"][i];
     return h("div",{key:g[0],className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderTop:"6px solid "+col}},
      h("h3",{className:"font-bold text-lg mb-3"},g[0]),h("ul",{className:"space-y-1"},g[1].map(function(x){return h("li",{key:x},x)})))}))),
-
-  h(S,{id:"wins",title:"Wins and recognition"},
-   h("div",{className:"grid md:grid-cols-3 gap-5"},WINS.map(function(x,i){return h("div",{key:x.e,className:"rounded-2xl p-6",style:{background:["var(--mango)","var(--mint)","var(--berry)"][i],color:i===2?"#fff":"#1E1537"}},
-    h("div",{className:"disp text-3xl font-extrabold"},x.w),h("div",{className:"font-bold mt-1"},x.e),h("p",{className:"mt-2 text-sm"},x.d))}))),
 
   h(S,{id:"how",title:"How I work"},h("div",{className:"grid md:grid-cols-2 gap-5"},HOW.map(function(x){return h("div",{key:x.t,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)",borderLeft:"8px solid "+x.c}},h("h3",{className:"font-bold text-lg"},x.t),h("p",{className:"mt-2"},x.d))}))),
 
@@ -177,11 +260,16 @@ function App(){
      h("h3",{className:"text-xl font-bold"},j.role+", "+j.org),
      h("ul",{className:"mt-2 space-y-2 list-disc pl-5"},j.pts.map(function(p){return h("li",{key:p},p)})))}))),
 
-  h(S,{id:"education",title:"Education"},h("div",{className:"grid md:grid-cols-2 gap-5"},EDU.map(function(e){return h("div",{key:e.d,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)"}},h("h3",{className:"font-bold text-lg"},e.d),h("p",{className:"mt-1"},e.s),h("p",{className:"mt-1 font-bold"},e.y+", "+e.g))}))),
+  h(S,{id:"education",title:"Education"},h("div",{className:"grid md:grid-cols-2 gap-5"},EDU.map(function(e){return h("div",{key:e.d,className:"rounded-2xl p-6",style:{background:"var(--card)",border:"1px solid var(--line)"}},h("h3",{className:"font-bold text-lg"},e.d),h("p",{className:"mt-1"},e.s),h("p",{className:"mt-1 font-bold"},e.y+", "+e.g),e.n&&h("p",{className:"mt-2 text-sm",style:{color:"var(--mute)"}},e.n))}))),
+
+  h(S,{id:"wins",title:"Wins, leadership and mentoring"},
+   h("div",{className:"grid sm:grid-cols-2 lg:grid-cols-4 gap-5"},WINS.map(function(x,i){return h("div",{key:x.e,className:"rounded-2xl p-6",style:{background:["var(--mango)","var(--mint)","var(--berry)","var(--blue)"][i],color:i>=2?"#fff":"#1E1537"}},
+    h("div",{className:"disp text-3xl font-extrabold"},x.w),h("div",{className:"font-bold mt-1"},x.e),h("p",{className:"mt-2 text-sm"},x.d))}))),
 
   h("section",{id:"contact",className:"hero mt-8"},h("div",{className:"max-w-6xl mx-auto px-5 py-16"},
-   h("h2",{className:"text-3xl sm:text-5xl font-extrabold max-w-2xl"},"Let's find what your shoppers really want."),
-   h("div",{className:"mt-8 flex flex-wrap gap-3"},btn("mailto:"+P.email,"Email me",true),btn(P.linkedin,"LinkedIn",false)))))
+   h("h2",{className:"text-3xl sm:text-5xl font-extrabold max-w-2xl"},"Let's find out what your customers are really telling you."),
+   h("p",{className:"mt-4 text-lg max-w-2xl"},"I'm looking for consumer insights, market research, CX and brand strategy roles where research directly shapes product, pricing, marketing or customer experience decisions."),
+   h("div",{className:"mt-8 flex flex-wrap gap-3"},btn("mailto:"+P.email,"Email me",true,"mail"),btn(P.linkedin,"LinkedIn",false,"linkedin")))))
 }
 ReactDOM.createRoot(document.getElementById("root")).render(h(App));
 })();
